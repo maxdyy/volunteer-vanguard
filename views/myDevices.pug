@@ -1,0 +1,65 @@
+extends layout
+
+block layout-content
+  div
+    h1.h1.text-center Here you can find all your Smart Devices
+    if deviceDeleted === "true"
+      div(role="alert").alert.alert-success.alert-dismissible.fade.show.mt-3.text-center
+        strong Device deleted successfully!
+        button(data-bs-dismiss="alert" type="button" aria-label="Close").btn-close
+    if deviceDeleted === "false"
+      div(role="alert").alert.alert-danger.alert-dismissible.fade.show.mt-3.text-center
+        strong Something went wrong, please try again!
+        br
+        strong #{errorMessage}
+        button(data-bs-dismiss="alert" type="button" aria-label="Close").btn-close
+  div.d-flex.flex-wrap.justify-content-center
+    if devices && devices.length
+      each val in devices
+        div.card.m-3.shadow-sm.bg-light.device-card
+          div.card-body.d-flex.flex-column.align-items-center
+            case val.type
+              when 'lock'
+                i.bi.bi-lock-fill.fs-4.pb-2
+              when 'blinds'
+                i.bi.bi-easel3-fill.fs-4.pb-2
+              when 'light'
+                i.bi.bi-lightbulb-fill.fs-4.pb-2
+              when 'tv'
+                i.bi.bi-tv-fill.fs-4.pb-2
+              default
+                i.bi.bi-layers-fill.fs-4.pb-2
+            h5.h5.card-title.text-center.text-uppercase.mb-4 Smart #{val.type}
+            p.card-text.text-center.mb-2.text-truncate.w-100 Name - 
+              strong.text-capitalize #{val.name}
+            p.card-text.text-center.mb-2 Location - 
+              strong.text-capitalize #{val.location}
+            p.card-text.text-center.mb-4 Status - 
+              if val.online === 1
+                strong.text-capitalize.text-success ON
+              else
+                strong.text-capitalize.text-danger OFF
+            a.btn.btn-outline-primary.mb-3.w-100(href=`/myDevice/${val.id}`) View Device
+            button(data-bs-toggle="modal" data-bs-target="#deleteDeviceModal").btn.btn-outline-danger.w-100 Delete Device
+            div.modal.fade#deleteDeviceModal(tabindex="-1" aria-labelledby="deleteDeviceModalLabel" aria-hidden="true")
+              div.modal-dialog.modal-dialog-centered
+                div.modal-content
+                  div.modal-header
+                    h5.modal-title.text-uppercase.w-100.text-truncate#deleteDeviceModalLabel Delete Smart #{val.type} - #{val.name}
+                    button(type="button" data-bs-dismiss="modal" aria-label="Close").btn-close
+                  div.modal-body
+                    p.text-center.w-100 Are you sure you want to delete 
+                      span.text-uppercase Smart #{val.type} -
+                      strong.text-capitalize #{val.name} 
+                      span ?
+                  form(action="/deleteDevice" method="post" id="deleteDeviceForm").w-100
+                    input(type="hidden" name="id" value=`${val.id}`)
+                  div.modal-footer
+                    button(type="submit" form="deleteDeviceForm").btn.btn-danger Delete
+                    button(data-bs-dismiss="modal" type="button").btn.btn-success Close
+    else 
+      div.d-flex.flex-column.align-items-center.justify-content-center.mt-5
+        h5.card-title.text-center No devices added yet
+        p.card-text.text-center Add new devices to your home
+        div.text-center.mt-3
+          a.btn.btn-primary.btn-lg(href='/addDevice') Add New Device

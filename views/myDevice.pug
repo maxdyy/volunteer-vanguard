@@ -1,0 +1,144 @@
+extends layout
+
+append scripts
+  script(src="/js/myDeviceController.js")
+
+block layout-content
+  div
+    if device
+      if deviceUpdated === "true"
+        div(role="alert").alert.alert-success.alert-dismissible.fade.show.mt-3.text-center
+          strong Device updated successfully!
+          button(data-bs-dismiss="alert" type="button" aria-label="Close").btn-close
+      if deviceUpdated === "false"
+        div(role="alert").alert.alert-danger.alert-dismissible.fade.show.mt-3.text-center
+          strong Something went wrong, please try again!
+          br
+          strong #{errorMessage}
+          button(data-bs-dismiss="alert" type="button" aria-label="Close").btn-close
+      div.card.bg-light
+        div.card-body
+          div.card-body.d-flex.flex-column.align-items-center
+            case device.type
+              when 'lock'
+                i.bi.bi-lock-fill.fs-1.pb-2
+              when 'blinds'
+                i.bi.bi-easel3-fill.fs-1.pb-2
+              when 'light'
+                i.bi.bi-lightbulb-fill.fs-1.pb-2
+              when 'tv'
+                i.bi.bi-tv-fill.fs-1.pb-2
+              default
+                i.bi.bi-layers-fill.fs-1.pb-2
+            h1.h1.card-title.text-center.text-uppercase.text-truncate.w-100 Smart #{device.type} - 
+              span.text-capitalize #{device.name}
+            button(data-bs-toggle="modal" data-bs-target="#editNameModal").btn.btn-outline-primary.btn-sm.ms-3
+              i.bi.bi-pencil-fill.fs-6   Edit name
+            div.modal.fade#editNameModal(tabindex="-1" aria-labelledby="editNameModalLabel" aria-hidden="true")
+              div.modal-dialog.modal-dialog-centered
+                div.modal-content
+                  div.modal-header
+                    h5.modal-title#editNameModalLabel Edit Name of Smart 
+                      span.text-capitalize #{device.type}
+                    button(type="button" data-bs-dismiss="modal" aria-label="Close").btn-close
+                  div.modal-body
+                    form(action="/editNameDevice" method="post" id="editNameForm")
+                      input(type="hidden" name="id" value=`${device.id}`)
+                      input(type="text" name="name" placeholder="Name" value=`${device.name}`).form-control
+                  div.modal-footer
+                    button(type="submit" form="editNameForm").btn.btn-success Save changes
+                    button(data-bs-dismiss="modal" type="button").btn.btn-danger Close
+            p.card-text.text-center.mt-5.mb-2.fs-3 Location - 
+              strong.text-capitalize #{device.location}
+            button(data-bs-toggle="modal" data-bs-target="#editLocation").btn.btn-outline-primary.btn-sm.ms-3
+              i.bi.bi-pencil-fill.fs-6   Edit location
+            div.modal.fade#editLocation(tabindex="-1" aria-labelledby="editLocationLabel" aria-hidden="true")
+              div.modal-dialog.modal-dialog-centered
+                div.modal-content
+                  div.modal-header
+                    h5.modal-title#editLocationLabel Edit Location of Smart 
+                      span.text-capitalize #{device.type}
+                    button(type="button" data-bs-dismiss="modal" aria-label="Close").btn-close
+                  div.modal-body
+                    form(action="/editLocationDevice" method="post" id="editLocationForm")
+                      input(type="hidden" name="id" value=`${device.id}`)
+                      select(name="location" aria-label="Select device type", required)#type.form-select.text-capitalize
+                        option.text-capitalize(selected, disabled, value=`${device.location}`) #{device.location}
+                        option(value="entrance") Entrance
+                        option(value="bedroom") Bedroom
+                        option(value="livingroom") Livingroom
+                        option(value="bathroom") Bathroom
+                  div.modal-footer
+                    button(type="submit" form="editLocationForm").btn.btn-success Save changes
+                    button(data-bs-dismiss="modal" type="button").btn.btn-danger Close
+            p.card-text.text-center.mb-2.mt-5.fs-3 Status - 
+              if device.online === 1
+                strong.text-capitalize.text-success ON
+              else
+                strong.text-capitalize.text-danger OFF
+            div
+              form(action="/powerDevice" method="post")
+                input(type="hidden" name="id" value=`${device.id}`)
+                input(type="hidden" name="online" value=`${device.online ? 0 : 1}`)
+                if device.online
+                  button(type="submit").btn.btn-outline-danger.w-100 Power Off
+                else
+                  button(type="submit").btn.btn-outline-success.w-100 Power On
+            case device.type
+              when 'lock'
+                div.mt-5.text-center
+                  form(action="/lockDevice" method="post").d-flex.flex-column.align-items-center.justify-content-center
+                    input(type="hidden" name="id" value=`${device.id}`)
+                    input(type="hidden" name="unlocked" value=`${device.unlocked ? 0 : 1}`)
+                    if device.unlocked
+                      strong.text-capitalize.text-danger.fs-3 UNLOCKED
+                      button(type="submit").btn.btn-outline-success.mt-3 Lock
+                    else
+                      strong.text-capitalize.text-success.fs-3 LOCKED
+                      button(type="submit").btn.btn-outline-danger.mt-3 Unlock
+              when 'blinds'
+                div.mt-5.text-center.w-100
+                  p.card-text.text-center.fs-3 Open Percentage - 
+                    strong.text-capitalize#openPercentageRangeValue #{device.openPercentage || 0}%
+                  form(action="/openPercentageDevice" method="post").d-flex.flex-column.align-items-center.justify-content-center
+                    input(type="hidden" name="id" value=`${device.id}`)
+                    input(type="range" name="openPercentage" min="0" max="100" step="1" value=`${device.openPercentage || 0}`).form-range#openPercentageRange
+                    button(type="submit").btn.btn-outline-primary.mt-3 Update blinds
+              when 'ac'
+                div.mt-5.text-center.w-100
+                  p.card-text.text-center.fs-3.mb-2 Temperature - 
+                    strong.text-capitalize#temperatureRangeValue #{device.temperature || 16} °C
+                  form(action="/acDevice" method="post").d-flex.flex-column.align-items-center.justify-content-center
+                    input(type="hidden" name="id" value=`${device.id}`)
+                    input(type="range" name="temperature" min="16" max="26" step="0.5" value=`${device.temperature || 0}`).form-range#temperatureRange
+                    p.card-text.text-center.fs-3.mb-2.mt-3 Fan Speed - 
+                      strong.text-capitalize #{device.fanSpeed || 'low'}
+                    select(name="fanSpeed" aria-label="Select fan speed")#fanSpeedSelect.form-select.text-capitalize.text-center
+                      option(value="low") low
+                      option(value="medium") medium
+                      option(value="high") high
+                    button(type="submit").btn.btn-outline-primary.mt-3 Update settings
+              when 'radiator'
+                div.mt-5.text-center.w-100
+                  p.card-text.text-center.fs-3 Temperature - 
+                    strong.text-capitalize#temperatureRangeValue #{device.temperature || 20} °C
+                  form(action="/temperatureDevice" method="post").d-flex.flex-column.align-items-center.justify-content-center
+                    input(type="hidden" name="id" value=`${device.id}`)
+                    input(type="range" name="temperature" min="20" max="60" step="0.5" value=`${device.temperature || 0}`).form-range#temperatureRange
+                    button(type="submit").btn.btn-outline-primary.mt-3 Update temperature
+              when 'tv'
+                div.mt-5.text-center.w-100
+                  p.card-text.text-center.fs-3 Volume - 
+                    strong.text-capitalize#volumePercentageRangeValue #{device.volumePercentage || 0}%
+                  form(action="/tvDevice" method="post").d-flex.flex-column.align-items-center.justify-content-center
+                    input(type="hidden" name="id" value=`${device.id}`)
+                    input(type="range" name="volumePercentage" min="0" max="100" step="1" value=`${device.volumePercentage || 0}`).form-range#volumePercentageRange
+                    p.card-text.text-center.fs-3.mb-2.mt-3 Channel - 
+                      strong.text-capitalize #{device.currentChannel || 0}
+                    input(type="number" name="currentChannel" placeholder="Channel Number" min="0" max="1000" value=`${device.currentChannel || 0}` required).form-control.text-center#exampleFormControlInput1
+                    button(type="submit").btn.btn-outline-primary.mt-3 Update settings
+    else
+      div
+        h2.h2.text-center Device not found
+        p.text-center.mt-3
+          a.btn.btn-outline-primary.btn-lg(href='/myDevices') My devices

@@ -1,23 +1,24 @@
 {
   "name": "volunteer-vanguard",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": "true",
+  "description": "Databases, Network and the Web",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "nodemon ./index.js",
+    "ui": "browser-sync start --config bs-config.js"
   },
+  "author": "Maksym Dmukhovskyy",
+  "license": "MIT",
   "dependencies": {
-    "@next/font": "13.1.6",
-    "@types/node": "18.11.19",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.33.0",
-    "eslint-config-next": "13.1.6",
-    "next": "13.1.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.9.5"
+    "body-parser": "^1.20.0",
+    "dompurify": "^2.3.8",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "nodemon": "^2.0.18"
   }
 }

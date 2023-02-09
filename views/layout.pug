@@ -1,0 +1,39 @@
+block variables
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="shortcut icon" href="/images/favicon.ico")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="theme-color" content="#21252a")
+    title #{title} | My Smart Home
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet")
+    link(href="/css/style.css" rel="stylesheet")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous")
+  body
+    header
+      div.px-3.py-2.bg-dark.text-white
+        div.container
+          div.d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+            a.d-flex.align-items-center.my-2.my-lg-0.me-lg-auto.text-white.text-decoration-none(href='/')
+              img(src="/images/logo.png" alt="My Smart Home" width="220" height="80")
+            ul.nav.col-12.col-lg-auto.my-2.justify-content-center.my-md-0.text-small
+              li
+                a.nav-link.text-white(href='/') Home
+              li
+                a.nav-link.text-white(href='/myDevices') My Devices
+              li
+                a.nav-link.text-white(href='/addDevice') Add Device
+    div.container.mt-5
+      block layout-content
+    footer.py-3.my-4.mt-5
+      ul.nav.justify-content-center.border-bottom.pb-3.mb-3
+        li.nav-item
+          a.nav-link.px-2.text-muted(href='/') Home
+        li.nav-item
+          a.nav-link.px-2.text-muted(href='/myDevices') My Devices
+        li.nav-item
+          a.nav-link.px-2.text-muted(href='/addDevice') Add Device
+      p.text-center.text-muted © 2020 - #{currentYear} My Smart Home, Inc
+  block scripts
