@@ -4,9 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 const appRoutes = require("./routes/main");
-const addDeviceRouter = require("./routes/addDeviceRoute");
-const myDevicesRouter = require("./routes/myDevicesRoute");
-const myDeviceRouter = require("./routes/myDeviceRouter");
+const aboutUsRouter = require("./routes/about");
 
 // App Variables
 const app = express();
@@ -28,9 +26,7 @@ app.use(
 
 // App Routes
 app.use(appRoutes);
-app.use(addDeviceRouter);
-app.use(myDevicesRouter);
-app.use(myDeviceRouter);
+app.use(aboutUsRouter);
 
 // Server Activation
 app.listen(port, () => {
