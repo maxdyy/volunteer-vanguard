@@ -2,16 +2,9 @@ extends layout
 
 block layout-content
   div.h-100
-    h1.h1.text-center Welcome to My Smart Home App
-    p.mt-5.text-center In this app you can add new smart devices to your home and control them.
-    p.mt-1.text-center Developed for the course 
-      strong "Databases, Network and the Web" 
-      span at the University of London.
-    p.mt-1.text-center Author 
-      strong Maksym Dmukhovskyy
-    h5.h5.mt-5.text-center To view all your devices click on the button below.
-    div.text-center.mt-3
-      a.btn.btn-outline-primary.btn-lg(href='/myDevices') View My Devices
-    h5.h5.mt-5.text-center To add new devices click on the button below.
-    div.text-center.mt-3
-      a.btn.btn-outline-primary.btn-lg(href='/addDevice') Add New Device
+    h1.h1.text-center VOLUNTEER VANGUARD
+    div.my-4
+      img.img-fluid(src="/images/homePageBanner.png" alt="Volunteer Vanguard Banner")
+    div.d-flex.justify-content-evenly
+      a.btn.btn-primary.btn-lg(href='/about') ABOUT US
+      a.btn.btn-primary.btn-lg.ms-5(href='/login') LOGIN
