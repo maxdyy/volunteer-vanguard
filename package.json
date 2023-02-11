@@ -1,24 +1,24 @@
 {
-  "name": "volunteer-vanguard",
-  "version": "1.0.0",
-  "private": "true",
-  "description": "Databases, Network and the Web",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon ./index.js",
-    "ui": "browser-sync start --config bs-config.js"
-  },
-  "author": "Maksym Dmukhovskyy",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.20.0",
-    "dompurify": "^2.3.8",
-    "express": "^4.18.1",
-    "mysql2": "^2.3.3",
-    "pug": "^3.0.2"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.27.10",
-    "nodemon": "^2.0.18"
-  }
+    "name": "volunteer-vanguard",
+    "version": "1.0.0",
+    "private": "true",
+    "description": "Agile Software Projects",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon ./index.js",
+        "ui": "browser-sync start --config bs-config.js"
+    },
+    "author": "Maksym Dmukhovskyy",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.20.0",
+        "dompurify": "^2.3.8",
+        "express": "^4.18.1",
+        "mysql2": "^2.3.3",
+        "pug": "^3.0.2"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.27.10",
+        "nodemon": "^2.0.18"
+    }
 }
