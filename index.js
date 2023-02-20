@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 
 const appRoutes = require("./routes/main");
 const aboutUsRouter = require("./routes/about");
+const loginRouter = require("./routes/login");
+const createRouter = require("./routes/create");
+const signInRouter = require("./routes/signin");
 
 // App Variables
 const app = express();
@@ -27,6 +30,9 @@ app.use(
 // App Routes
 app.use(appRoutes);
 app.use(aboutUsRouter);
+app.use(loginRouter);
+app.use(createRouter);
+app.use(signInRouter);
 
 // Server Activation
 app.listen(port, () => {
