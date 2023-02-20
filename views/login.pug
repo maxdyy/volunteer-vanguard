@@ -5,3 +5,28 @@ block layout-content
     h1.h1.text-center.mb-5 LOGIN
     div.container
       div.row
+      form.row gx-3 gy-2 align-items-center
+                        div.col-sm-3
+                            label.visually-hidden for="specificSizeInputName" Name
+                            input type="text" ."form-control" id="specificSizeInputName" placeholder="Jane Doe"
+
+                        div.col-sm-3
+                            label.visually-hidden for="specificSizeInputGroupUsername" Username
+                            div.input-group
+                                div.input-group-text @
+                                input type="text" ."form-control" id="specificSizeInputGroupUsername" placeholder="Username"
+
+                        div.col-sm-3
+                            label.visually-hidden for="specificSizeSelect"Preference/label
+                            select.form-select id="specificSizeSelect"
+                            option selectedChoose Type.../option
+                            option value="1"Organization/option
+                            option value="2"Volunteer/option
+                            option value="3"Donor/option
+                        divcol-auto
+                            div.form-check
+                                input.form-check-input type="checkbox" id="autoSizingCheck2"
+                                label.form-check-label for="autoSizingCheck2"
+                              I agree with the Terms of Use
+                        div.col-auto
+                            button type="submit" ."btn btn-primary"Submit/button
