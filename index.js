@@ -8,6 +8,7 @@ const aboutUsRouter = require("./routes/about");
 const loginRouter = require("./routes/login");
 const createRouter = require("./routes/create");
 const signInRouter = require("./routes/signin");
+const listingRouter = require("./routes/listing");
 
 // App Variables
 const app = express();
@@ -33,6 +34,7 @@ app.use(aboutUsRouter);
 app.use(loginRouter);
 app.use(createRouter);
 app.use(signInRouter);
+app.use(listingRouter);
 
 // Server Activation
 app.listen(port, () => {
