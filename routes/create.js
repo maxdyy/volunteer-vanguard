@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // Home Page
-router.get("/create", (req, res) => {
+router.get("/volunteer-vanguard/create", (req, res) => {
     res.render("create", {
         title: "Create",
         currentYear: new Date().getFullYear()
