@@ -28,7 +28,7 @@ const opportunityBox = (opportunity) => `
           
           <h5 class="card-title">${
             opportunity?.location
-          } ${opportunity?.isEmergency && `<span class="badge bg-danger">Emergency</span>`}</h5>
+          } ${opportunity?.isEmergency ? `<span class="badge bg-danger">Emergency</span>`: ''}</h5>
           <div class="d-flex">
             <p class="card-text text-muted">
               <i class="bi bi-person-fill text-primary fs-4"> </i
