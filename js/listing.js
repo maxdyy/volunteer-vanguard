@@ -1,13 +1,19 @@
 const calculateDaysLeft = (date) => {
-  if (!date) {
-    return 0;
-  }
-
   const today = new Date();
   const endDate = new Date(date);
   const diffTime = Math.abs(endDate - today);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  return diffDays;
+
+  if (diffDays < 0) {
+    return "Expired";
+  }
+
+  if (diffDays === 0) {
+    return "Today";
+  } else if (diffDays === 1) {
+    return "Tomorrow";
+  }
+  return `${diffDays} days left`;
 };
 
 const opportunityBox = (opportunity) => `
@@ -26,9 +32,11 @@ const opportunityBox = (opportunity) => `
             ${opportunity?.title}
           </h5>
           
-          <h5 class="card-title">${
-            opportunity?.location
-          } ${opportunity?.isEmergency ? `<span class="badge bg-danger">Emergency</span>`: ''}</h5>
+          <h5 class="card-title">${opportunity?.location} ${
+  opportunity?.isEmergency
+    ? `<span class="badge bg-danger">Emergency</span>`
+    : ""
+}</h5>
           <div class="d-flex">
             <p class="card-text text-muted">
               <i class="bi bi-person-fill text-primary fs-4"> </i
@@ -38,7 +46,7 @@ const opportunityBox = (opportunity) => `
               <i class="bi bi-clock-fill text-primary fs-5"></i
               ><span> ${calculateDaysLeft(
                 opportunity?.endDate
-              )} days left</span>
+              )}</span>
             </p>
           </div>
           <p class="card-text">
@@ -61,9 +69,11 @@ const initListing = () => {
   const opportunitiesBox = document.querySelector("#opportunities-box");
   const createOpportunityBtn = document.querySelector("#create-opportunity");
 
-
   // If the user is logged in and if the user if of type NGO, show the create opportunity button
-  if (VOLUNTEER_VANGUARD.isLoggedIn() && VOLUNTEER_VANGUARD.getUser().type === "NGO") {
+  if (
+    VOLUNTEER_VANGUARD.isLoggedIn() &&
+    VOLUNTEER_VANGUARD.getUser().type === "NGO"
+  ) {
     createOpportunityBtn.classList.remove("d-none");
     createOpportunityBtn.classList.add("d-flex");
   }
@@ -73,7 +83,7 @@ const initListing = () => {
   const opportunities = db?.opportunities || [];
 
   // Render the opportunities
-  opportunities.forEach(element => {
+  opportunities.forEach((element) => {
     opportunitiesBox.innerHTML += opportunityBox(element);
   });
 };
