@@ -21,6 +21,58 @@ const VV_DB = {
       type: "Volunteer",
     },
   ],
+  opportunities: [
+    {
+      title: "Helping the homeless",
+      location: "New York",
+      description: "Helping the homeless in New York",
+      creator: "John D.",
+      endDate: "2023-05-22",
+      isEmergency: false,
+      image: "https://picsum.photos/200/300",
+      href: "https://www.google.com",
+    },
+    {
+      title: "Wildlife training",
+      location: "London",
+      description: "Helping the wildlife in London",
+      creator: "Anna S.",
+      endDate: "2023-05-25",
+      isEmergency: true,
+      image: "https://picsum.photos/200/300",
+      href: "https://www.google.com",
+    },
+    {
+      title: "Building wells for water",
+      location: "Santo Domingo",
+      description: "Helping the people in Santo Domingo",
+      creator: "John D.",
+      endDate: "2023-05-30",
+      isEmergency: false,
+      image: "https://picsum.photos/200/300",
+      href: "https://www.google.com",
+    },
+    {
+      title: "Animal rescue",
+      location: "Los Angeles",
+      description: "Helping the animals in Los Angeles",
+      creator: "Carlos S.",
+      endDate: "2023-04-30",
+      isEmergency: true,
+      image: "https://picsum.photos/200/300",
+      href: "https://www.google.com",
+    },
+    {
+      title: "Earthquake help",
+      location: "Mexico City",
+      description: "Helping the people in Mexico City",
+      creator: "Lucia G.",
+      endDate: "2023-03-30",
+      isEmergency: true,
+      image: "https://picsum.photos/200/300",
+      href: "https://www.google.com",
+    },
+  ],
 };
 
 // Function to check if the DB is initialized on the localStorage
@@ -29,6 +81,11 @@ VOLUNTEER_VANGUARD.initDB = () => {
   if (!localStorage.getItem("VV_DB")) {
     localStorage.setItem("VV_DB", JSON.stringify(VV_DB));
   }
+};
+
+// Function to force the DB initialization
+VOLUNTEER_VANGUARD.forceInitDB = () => {
+  localStorage.setItem("VV_DB", JSON.stringify(VV_DB));
 };
 
 // Function to get the DB from the localStorage

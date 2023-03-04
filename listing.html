@@ -24,13 +24,13 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <link href="custom.css" rel="stylesheet" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
     </style>
 
     <!-- Custom JS Logics -->
     <script src="./js/main.js"></script>
+    <script src="./js/listing.js"></script>
   </head>
 
   <body>
@@ -59,13 +59,17 @@
               class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small ms-lg-5"
             >
               <li id="header-anonymous">
-                <a class="nav-link text-dark" href="./login.html"
-                  >Log In</a
-                >
+                <a class="nav-link text-dark" href="./login.html">Log In</a>
               </li>
               <li id="header-logged" class="d-none">
                 <span id="header-username">John Doe</span>
-                <button type="button" class="btn btn-danger ms-2" id="header-logout">logout</button>
+                <button
+                  type="button"
+                  class="btn btn-danger ms-2"
+                  id="header-logout"
+                >
+                  logout
+                </button>
               </li>
             </ul>
           </div>
@@ -74,247 +78,13 @@
     </header>
 
     <div class="container mt-5">
-      <div class="row">
-        <div class="col-xl-4">
-          <div class="card mb-3 overflow-hidden shadow-sm">
-            <div class="row g-0">
-              <div class="col-4 overflow-hidden">
-                <img
-                  class="h-100 object-fit-contain"
-                  src="./images/volunteers-2.png"
-                />
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-end">
-                    <i class="bi bi-three-dots text-primary fs-3"></i>
-                  </div>
-                  <h5 class="card-title">Humanity Mission in Haiti</h5>
-                  <div class="d-flex">
-                    <p class="card-text text-muted">
-                      <i class="bi bi-person-fill text-primary fs-4"> </i
-                      ><span>Denis M.</span>
-                    </p>
-                    <p class="card-text text-muted ps-3 pt-1">
-                      <i class="bi bi-clock-fill text-primary fs-5"></i
-                      ><span> 10 days left</span>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                  <div class="d-flex justify-content-end">
-                    <a class="w-100 btn btn-primary btn-sm" href="#"
-                      >View Application</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card mb-3 overflow-hidden shadow-sm">
-            <div class="row g-0">
-              <div class="col-4 overflow-hidden">
-                <img
-                  class="h-100 object-fit-contain"
-                  src="./images/volunteers-2.png"
-                />
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-end">
-                    <i class="bi bi-three-dots text-primary fs-3"></i>
-                  </div>
-                  <h5 class="card-title">Humanity Mission in Haiti</h5>
-                  <div class="d-flex">
-                    <p class="card-text text-muted">
-                      <i class="bi bi-person-fill text-primary fs-4"> </i
-                      ><span>Denis M.</span>
-                    </p>
-                    <p class="card-text text-muted ps-3 pt-1">
-                      <i class="bi bi-clock-fill text-primary fs-5"></i
-                      ><span> 10 days left</span>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                  <div class="d-flex justify-content-end">
-                    <a class="w-100 btn btn-primary btn-sm" href="#"
-                      >View Application</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card mb-3 overflow-hidden shadow-sm">
-            <div class="row g-0">
-              <div class="col-4 overflow-hidden">
-                <img
-                  class="h-100 object-fit-contain"
-                  src="./images/volunteers-2.png"
-                />
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-end">
-                    <i class="bi bi-three-dots text-primary fs-3"></i>
-                  </div>
-                  <h5 class="card-title">Humanity Mission in Haiti</h5>
-                  <div class="d-flex">
-                    <p class="card-text text-muted">
-                      <i class="bi bi-person-fill text-primary fs-4"> </i
-                      ><span>Denis M.</span>
-                    </p>
-                    <p class="card-text text-muted ps-3 pt-1">
-                      <i class="bi bi-clock-fill text-primary fs-5"></i
-                      ><span> 10 days left</span>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                  <div class="d-flex justify-content-end">
-                    <a class="w-100 btn btn-primary btn-sm" href="#"
-                      >View Application</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card mb-3 overflow-hidden shadow-sm">
-            <div class="row g-0">
-              <div class="col-4 overflow-hidden">
-                <img
-                  class="h-100 object-fit-contain"
-                  src="./images/volunteers-2.png"
-                />
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-end">
-                    <i class="bi bi-three-dots text-primary fs-3"></i>
-                  </div>
-                  <h5 class="card-title">Humanity Mission in Haiti</h5>
-                  <div class="d-flex">
-                    <p class="card-text text-muted">
-                      <i class="bi bi-person-fill text-primary fs-4"> </i
-                      ><span>Denis M.</span>
-                    </p>
-                    <p class="card-text text-muted ps-3 pt-1">
-                      <i class="bi bi-clock-fill text-primary fs-5"></i
-                      ><span> 10 days left</span>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                  <div class="d-flex justify-content-end">
-                    <a class="w-100 btn btn-primary btn-sm" href="#"
-                      >View Application</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card mb-3 overflow-hidden shadow-sm">
-            <div class="row g-0">
-              <div class="col-4 overflow-hidden">
-                <img
-                  class="h-100 object-fit-contain"
-                  src="./images/volunteers-2.png"
-                />
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-end">
-                    <i class="bi bi-three-dots text-primary fs-3"></i>
-                  </div>
-                  <h5 class="card-title">Humanity Mission in Haiti</h5>
-                  <div class="d-flex">
-                    <p class="card-text text-muted">
-                      <i class="bi bi-person-fill text-primary fs-4"> </i
-                      ><span>Denis M.</span>
-                    </p>
-                    <p class="card-text text-muted ps-3 pt-1">
-                      <i class="bi bi-clock-fill text-primary fs-5"></i
-                      ><span> 10 days left</span>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                  <div class="d-flex justify-content-end">
-                    <a class="w-100 btn btn-primary btn-sm" href="#"
-                      >View Application</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card mb-3 overflow-hidden shadow-sm">
-            <div class="row g-0">
-              <div class="col-4 overflow-hidden">
-                <img
-                  class="h-100 object-fit-contain"
-                  src="./images/volunteers-2.png"
-                />
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <div class="d-flex justify-content-end">
-                    <i class="bi bi-three-dots text-primary fs-3"></i>
-                  </div>
-                  <h5 class="card-title">Humanity Mission in Haiti</h5>
-                  <div class="d-flex">
-                    <p class="card-text text-muted">
-                      <i class="bi bi-person-fill text-primary fs-4"> </i
-                      ><span>Denis M.</span>
-                    </p>
-                    <p class="card-text text-muted ps-3 pt-1">
-                      <i class="bi bi-clock-fill text-primary fs-5"></i
-                      ><span> 10 days left</span>
-                    </p>
-                  </div>
-                  <p class="card-text">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                  <div class="d-flex justify-content-end">
-                    <a class="w-100 btn btn-primary btn-sm" href="#"
-                      >View Application</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-5 d-flex justify-content-center p-5 pointer">
+      <a href="./create.html" class="mt-5 justify-content-center p-5 pointer d-none" id="create-opportunity">
         <i
           class="bi bi-plus-circle text-primary fs-1 px-3 py-2 shadow rounded-circle"
         ></i>
+      </a>
+      <div class="row" id="opportunities-box">
+
       </div>
       <div class="mt-5">
         <div class="d-flex justify-content-center">
