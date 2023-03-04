@@ -26,6 +26,11 @@ const initNewOpportunity = () => {
   const isEmergency = document.querySelector("#isEmergency");
   const image = document.querySelector("#image");
   const submitButton = document.querySelector("#create-btn");
+  const creator = document.querySelector("#creator");
+
+  const creatorValue = VOLUNTEER_VANGUARD.getUser().name;
+  // Add the value to the creator field
+  creator.value = creatorValue;
 
   // Bind the submit button
   submitButton.addEventListener("click", (e) => {
@@ -38,7 +43,6 @@ const initNewOpportunity = () => {
     const endDateValue = endDate.value;
     const isEmergencyValue = isEmergency.checked;
     const imageValue = image.value;
-    const creatorValue = VOLUNTEER_VANGUARD.getUser().name;
 
     // If required fields are populated create the opportunity opportunity object
     if (
