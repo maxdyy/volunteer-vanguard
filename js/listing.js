@@ -65,6 +65,7 @@ const initListing = () => {
   // If the user is logged in and if the user if of type NGO, show the create opportunity button
   if (VOLUNTEER_VANGUARD.isLoggedIn() && VOLUNTEER_VANGUARD.getUser().type === "NGO") {
     createOpportunityBtn.classList.remove("d-none");
+    createOpportunityBtn.classList.add("d-flex");
   }
 
   // Get the opportunities from the DB
