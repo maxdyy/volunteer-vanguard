@@ -17,19 +17,19 @@ const calculateDaysLeft = (date) => {
 };
 
 const opportunityBox = (opportunity) => `
-<div class="col-xl-4">
-  <div class="card mb-3 overflow-hidden shadow-sm">
+<div class="col-xl-6">
+  <div class="card mb-4 overflow-hidden shadow-sm">
     <div class="row g-0">
-      <div class="col-4 overflow-hidden">
+      <div class="col-6 overflow-hidden">
         <img
           class="h-100 object-fit-contain"
           src="${opportunity?.image}"
 
-          width="200"
+          width="300"
           height="300"
         />
       </div>
-      <div class="col-8">
+      <div class="col-6">
         <div class="card-body">
           <h5 class="card-title">
             ${opportunity?.title}
