@@ -6,16 +6,35 @@ const resultsAreaDiv = document.createElement("div");
 
 window.addEventListener("resize", () => {
     setSearchAreaProperties();
+});
+
+searchBar.addEventListener("keypress", (e)=> {
+    if (e.key == "Enter") {
+        e.preventDefault();
+        sessionStorage.setItem("results", JSON.stringify(results));
+        sessionStorage.setItem("searchHistory", e.target.value);
+        window.location.href = "searchPage.html";
+    }
+});
+
+searchBar.addEventListener("focus", (e) => {
+    // results = database.filter((volunteerProgram) => (volunteerProgram.title.toLowerCase().includes(e.target.value.toLowerCase())));;
+    updateResultsArea(e);
 })
 
+searchBar.addEventListener("blur", (e) => {
+    results = [];
+    resultsAreaDiv.innerHTML = "";
+    setSearchAreaProperties();
+})
 // -------------------------------------------------------------- functions --------------------------------------------------------------
 // updates results array
-function updateResults(e) {
+function updateResultsArea(e) {
    
     resultsAreaDiv.innerHTML = "";
 
     // filter rows which contain search keyword
-    results = database.filter((volunteerProgram) => (volunteerProgram.displayName.toLowerCase().includes(e.target.value.toLowerCase())));
+    results = database.filter((volunteerProgram) => (volunteerProgram.title.toLowerCase().includes(e.target.value.toLowerCase())));
 
     // if e is blank then empty results array
     if (e.target.value == "") {
@@ -27,8 +46,8 @@ function updateResults(e) {
     // sort by prefix bias
     results = results.sort(
         (a, b) => (
-            a.displayName.toLowerCase().indexOf(e.target.value.toLowerCase()) -
-            b.displayName.toLowerCase().indexOf(e.target.value.toLowerCase())
+            a.title.toLowerCase().indexOf(e.target.value.toLowerCase()) -
+            b.title.toLowerCase().indexOf(e.target.value.toLowerCase())
         ));
 
     // add results to results area div
@@ -38,7 +57,7 @@ function updateResults(e) {
 
         node.setAttribute("class", "resultDiv");
         node.childNodes[0].setAttribute("class", "btn btn-light resultBtn");
-        node.childNodes[0].textContent = result.displayName;
+        node.childNodes[0].textContent = result.title;
         resultsAreaDiv.appendChild(node);
     }
 
@@ -74,7 +93,7 @@ function setSearchAreaProperties() {
 
 // -------------------------------------------------------------- main --------------------------------------------------------------
 // add event listener to all search bars
-searchBar.addEventListener("input", updateResults);
+searchBar.addEventListener("input", updateResultsArea);
 
 // create results area div
 resultsAreaDiv.setAttribute("class", "resultsAreaDiv rounded");
