@@ -1,0 +1,36 @@
+.resultsAreaDiv {
+    position: absolute !important;
+    z-index: 10;
+    
+    background-color: rgb(222, 222, 222);
+    /* width: 620px !important; */
+    /* left : calc(50% - 310px); */
+    top : 60px;
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+.resultDiv {
+    text-align: center;
+}
+
+.resultBtn {
+    margin: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: #f6f6f6;
+}
+
+#searchAndFilter {
+    margin-right: 0% !important  ;
+    margin-top : 3% !important;
+}
+
+#filter {
+    /* margin-left: 10%; */
+    background-color: #F6F6F6; 
+    height: fit-content;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+}

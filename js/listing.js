@@ -1,32 +1,35 @@
 const calculateDaysLeft = (date) => {
-  const today = new Date();
-  const endDate = new Date(date);
-  const diffTime = Math.abs(endDate - today);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const today = new Date();
+    const endDate = new Date(date);
+    const diffTime = Math.abs(endDate - today);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  if (diffDays < 0) {
-    return "Expired";
-  }
+    if (diffDays < 0) {
+        return "Expired";
+    }
 
-  if (diffDays === 0) {
-    return "Today";
-  } else if (diffDays === 1) {
-    return "Tomorrow";
-  }
-  return `${diffDays} days left`;
+    if (diffDays === 0) {
+        return "Today";
+    } else if (diffDays === 1) {
+        return "Tomorrow";
+    }
+    return `${diffDays} days left`;
 };
 
 const opportunityBox = (opportunity) => `
-<div class="col-xl-4">
-  <div class="card mb-3 overflow-hidden shadow-sm">
+<div class="col-xl-6">
+  <div class="card mb-4 overflow-hidden shadow-sm">
     <div class="row g-0">
-      <div class="col-4 overflow-hidden">
+      <div class="col-6 overflow-hidden">
         <img
           class="h-100 object-fit-contain"
           src="${opportunity?.image}"
+
+          width="300"
+          height="300"
         />
       </div>
-      <div class="col-8">
+      <div class="col-6">
         <div class="card-body">
           <h5 class="card-title">
             ${opportunity?.title}
