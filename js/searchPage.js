@@ -30,11 +30,10 @@ searchBar.addEventListener("blur", (e) => {
 // -------------------------------------------------------------- functions --------------------------------------------------------------
 // updates results array
 function updateResultsArea(e) {
-   
     resultsAreaDiv.innerHTML = "";
 
     // filter rows which contain search keyword
-    results = database.filter((volunteerProgram) => (volunteerProgram.title.toLowerCase().includes(e.target.value.toLowerCase())));
+    results = VV_DB.opportunities.filter((volunteerProgram) => (volunteerProgram.title.toLowerCase().includes(e.target.value.toLowerCase())));
 
     // if e is blank then empty results array
     if (e.target.value == "") {
