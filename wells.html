@@ -1,41 +1,72 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="./images/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="theme-color" content="#21252a" />
     <title>ABOUT | VOLUNTEER VANGUARD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Custom JS Logics -->
     <script src="./js/main.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="px-3 py-2 bg-white text-dark border-bottom">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start flex-lg-nowrap">
-                    <a class="d-flex align-items-center my-2 my-lg-0 me-lg-5 text-dark text-decoration-none" href="./index.html">
-                        <h1>VANGUARD</h1>
-                    </a>
-                    <div class="input-group flex-nowrap me-lg-5 ms-lg-5">
-                        <span class="input-group-text bi bi-search"></span>
-                        <input class="form-control form-control-dark w-100" type="search" placeholder="Search Volunteer Programs" aria-label="Search Volunteer Programs" />
-                    </div>
-                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small ms-lg-5">
-                        <li id="header-anonymous">
-                            <a class="nav-link text-dark" href="./login.html">Log In</a
-                >
+      <div class="px-3 py-2 bg-white text-dark border-bottom">
+        <div class="container">
+          <div
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start flex-lg-nowrap"
+          >
+            <a
+              class="d-flex align-items-center my-2 my-lg-0 me-lg-5 text-dark text-decoration-none"
+              href="./index.html"
+            >
+              <h1>VANGUARD</h1>
+            </a>
+            <div class="input-group flex-nowrap me-lg-5 ms-lg-5">
+              <span class="input-group-text bi bi-search"></span>
+              <input
+                class="form-control form-control-dark w-100"
+                type="search"
+                placeholder="Search Volunteer Programs"
+                aria-label="Search Volunteer Programs"
+              />
+            </div>
+            <ul
+              class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small ms-lg-5"
+            >
+              <li id="header-anonymous">
+                <a class="nav-link text-dark" href="./login.html">Log In</a>
               </li>
               <li id="header-logged" class="d-none">
                 <span id="header-username">John Doe</span>
-                <button type="button" class="btn btn-danger ms-2" id="header-logout">logout</button>
+                <button
+                  type="button"
+                  class="btn btn-danger ms-2"
+                  id="header-logout"
+                >
+                  logout
+                </button>
               </li>
             </ul>
           </div>
@@ -43,6 +74,17 @@
       </div>
     </header>
     <div class="container mt-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="./listing.html">Programs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Building Wells for Water
+          </li>
+        </ol>
+      </nav>
       <div class="h-100">
         <h1 class="h1 text-center mb-5">Building Wells for Water</h1>
         <div class="container">
@@ -61,7 +103,9 @@
               </p>
               <p class="lead">Help secure sources of water.</p>
               <p class="lead">Looking for 20 volunteers.</p>
-              <p class="lead">Experience mechanical well contruction required.</p>
+              <p class="lead">
+                Experience mechanical well contruction required.
+              </p>
               <p class="lead">Help make a difference!</p>
             </div>
           </div>
@@ -71,15 +115,14 @@
     <div class="container mt-5">
       <div class="d-flex justify-content-evenly">
         <a class="btn btn-primary btn-lg" href="./listing.html">All Projects</a>
-                </div>
-            </div>
+      </div>
+    </div>
 
-            <footer class="py-3 my-4 mt-5">
-                <p class="text-center text-muted">© 2023 - Volunteer Vanguard</p>
+    <footer class="py-3 my-4 mt-5">
+      <p class="text-center text-muted">© 2023 - Volunteer Vanguard</p>
 
-                <script src="./js/database.js"></script>
-                <script src="./js/searchPage.js"></script>
-            </footer>
-</body>
-
+      <script src="./js/database.js"></script>
+      <script src="./js/searchPage.js"></script>
+    </footer>
+  </body>
 </html>

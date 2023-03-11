@@ -32,7 +32,7 @@
     <script src="./js/login.js"></script>
 
     <!-- css linking -->
-    <link rel="stylesheet" href="searchPage.css">
+    <link rel="stylesheet" href="searchPage.css" />
   </head>
 
   <body>
@@ -61,13 +61,17 @@
               class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small ms-lg-5"
             >
               <li id="header-anonymous">
-                <a class="nav-link text-dark" href="./login.html"
-                  >Log In</a
-                >
+                <a class="nav-link text-dark" href="./login.html">Log In</a>
               </li>
               <li id="header-logged" class="d-none">
                 <span id="header-username">John Doe</span>
-                <button type="button" class="btn btn-danger ms-2" id="header-logout">logout</button>
+                <button
+                  type="button"
+                  class="btn btn-danger ms-2"
+                  id="header-logout"
+                >
+                  logout
+                </button>
               </li>
             </ul>
           </div>
@@ -77,9 +81,29 @@
 
     <div class="container mt-5">
       <div class="h-100">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+            <li class="breadcrumb-item">
+              <a href="./listing.html">Programs</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Log In</li>
+          </ol>
+        </nav>
         <h1 class="h1 text-center mb-5">Welcome Back - Log In</h1>
         <div class="container">
           <div class="row">
+            <div class="text-center alert alert-success w-50 md-w-25 mx-auto mb-5" role="alert">
+              <h4 class="alert-heading">This is a Prototype Website</h4>
+              <hr />
+              <p class="mb-0">
+                You can use a test user with the following credentials:
+                <br />
+                email: <strong>j.doe@gmail.com</strong>
+                <br />
+                password: <strong>123456</strong>
+              </p>
+            </div>
             <form
               class="d-flex flex-column justify-content-center align-items-center"
               id="login-form"
@@ -113,10 +137,7 @@
               </div>
               <br />
               <div class="d-flex justify-content-evenly mt-4">
-                <button
-                  class="btn btn-primary btn-lg"
-                  id="login-btn"
-                >
+                <button class="btn btn-primary btn-lg" id="login-btn">
                   LOG IN
                 </button>
               </div>
