@@ -54,13 +54,13 @@ function createCard(dbObj) {
 
 	return new DOMParser().parseFromString(`<div class="card mb-3 overflow-hidden shadow-sm" id="temp">
     <div class="row g-0">
-      <div class="col-2 overflow-hidden">
+      <div class="col-3 overflow-hidden">
         <img
-          class="h-50 w-100 object-fit-contain"
+          class="h-100 w-100 object-fit-contain"
           src="`+ dbObj.image + `"
         />
       </div>
-      <div class="col-10">
+      <div class="col-8">
         <div class="card-body">
           <div class="d-flex justify-content-end">
             <i class="bi bi-three-dots text-primary fs-3"></i>
