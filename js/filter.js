@@ -151,7 +151,7 @@ searchBar.value = sessionStorage.getItem("searchHistory");
 
 var searchResults = JSON.parse(sessionStorage.getItem("results"));
 
-var filtersState = { location: [], creator: [], isEmergency: ["true", "false"] };
+var filtersState = { location: [], creator: [], isEmergency: ["YES", "NO"] };
 
 populateFiltersState();
 createFilterButtons("location", filter);
