@@ -56,7 +56,7 @@ function createCard(dbObj) {
     <div class="row g-0">
       <div class="col-2 overflow-hidden">
         <img
-          class="h-100 object-fit-contain"
+          class="h-50 w-50 object-fit-contain"
           src="`+ dbObj.image + `"
         />
       </div>
