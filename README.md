@@ -1,6 +1,11 @@
 # Project Title
 Volunteer Vanguard - UoL Project
 
+- Keshav Deepak
+- Maksym Dmukhovskyy
+- Veronica Torrens
+- Brian Van Steen
+
 ## Description
 This is a project for the University of London's 2023 Agile Software module. 
 The project is a web application that allows users to find volunteering opportunities in their local area. 
